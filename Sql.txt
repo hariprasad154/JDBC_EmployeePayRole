@@ -28,4 +28,14 @@ ________________________________________________
 
 UC5
 
+SELECT salary FROM payroll_Employewage
+WHERE name = "Hari"
+
+SELECT salary FROM payroll_Employewage
+WHERE startDate BETWEEN CAST('2018-01-01'
+AS DATE) AND DATE(NOW());
+
+
+
+
 

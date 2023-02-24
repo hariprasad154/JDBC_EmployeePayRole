@@ -79,4 +79,19 @@ _______________________________________________
 
 UC 8
 
+CREATE TABLE IF NOT EXISTS `payroll_employewage`.`payroll_employewage` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(30) NULL DEFAULT NULL,
+  `startDate` DATE NOT NULL,
+  `salary` DOUBLE NOT NULL,
+  `Gender` CHAR(1) NOT NULL,
+  `Department` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+
+
+ENGINE = InnoDB
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+
 

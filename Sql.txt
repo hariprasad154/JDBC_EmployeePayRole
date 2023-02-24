@@ -35,7 +35,38 @@ SELECT salary FROM payroll_Employewage
 WHERE startDate BETWEEN CAST('2018-01-01'
 AS DATE) AND DATE(NOW());
 
+___________________________________________________________
+
+UC 6
+
+ALTER TABLE payroll_Employewage add Gender Char not null;
+
+update payroll_Employewage set Gender ='M' where id =1 or id =2 or id =3  ;
+
+update payroll_Employewage set Gender ='F' where id = 4 ;
 
 
+1	Hari	2022-08-22	35000	M
+2	Prasad	2020-08-22	36000	M
+3	MNNaidu	2020-08-22	46000	M
+4	Pushpa	2020-08-22	36000	F
+5	Rossy	2023-02-16	35000	F
+
+_______________________________________________
+
+UC 7
+
+SELECT SUM(salary) FROM payroll_Employewage
+WHERE Gender = 'F' ;
+
+71000
+
+SELECT SUM(salary) FROM payroll_Employewage
+WHERE Gender = 'F' GROUP BY Gender;
+
+71000
+_______________________________________________
+
+UC 8
 
 

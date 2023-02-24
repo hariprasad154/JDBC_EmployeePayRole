@@ -52,11 +52,43 @@ public class DataBaseClass {
         } catch (SQLException e) {
             System.out.println("error - "+ e);
         }
-
     }
+
+    public static void fetchMethods(String quary) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.print("The error in the class -" + e);
+        }
+        try {
+            Connection connection =DriverManager.getConnection(url,userName,password);
+            Statement st = connection.createStatement();
+            System.out.println("The fecting the data is started  \n");
+            ResultSet rs =st.executeQuery(quary);
+            //The result we want in the table formatte so we use RS
+            //fetch the data
+            System.out.println("The result set - " + rs);
+            while (rs.next()) {
+                Double userData =rs.getDouble(1 ) ;
+                System.out.println(userData);
+            }
+            System.out.println("Closing point of the Fetch method");
+            st.close();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("The error at the Connection - " + e);
+        }
+    }
+
+
+
+
+
     public static void main(String[] args) {
-        fetchData("SELECT * FROM payroll_Employewage WHERE startDate BETWEEN CAST('2021-01-01'AS DATE) AND DATE(NOW())");
+      //  fetchData("SELECT * FROM payroll_Employewage WHERE startDate BETWEEN CAST('2021-01-01'AS DATE) AND DATE(NOW())");
 //        set();
+
+        fetchMethods("SELECT SUM(salary) FROM payroll_Employewage WHERE Gender = 'F' ");
 //        fetchData("select * from payroll_Employewage");
     }
 }

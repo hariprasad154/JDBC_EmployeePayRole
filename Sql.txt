@@ -93,5 +93,30 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci
+_________________________________________________________________
+
+UC 11
+
+ALTER TABLE payroll_Employewage add BasicPay Double;
+ALTER TABLE payroll_Employewage add TaxPay Double;
+
+update payroll_Employewage set TaxPay =salary *0.10 where id =1 or id =2 or id =3  ;
+select * from payroll_Employewage
+
+
+____________________________________________________________________
+
+ UC- 12
+
+
+update payroll_Employewage set BasicPay =salary -TaxPay where id =1 or id =1 or id =2 or id =3 or id =4 or id =5 ;
+select * from payroll_Employewage
+
+
+1	Hari	2022-08-22	35000	M	31500	3500
+2	Prasad	2020-08-22	36000	M	32400	3600
+3	MNNaidu	2020-08-22	46000	M	41400	4600
+4	Pushpa	2020-08-22	3600000	F	3240000	360000
+5	Rossy	2023-02-16	35000	F	31500	3500
 
 

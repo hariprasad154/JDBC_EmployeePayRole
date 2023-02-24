@@ -61,6 +61,16 @@ WHERE Gender = 'F' ;
 
 71000
 
+SELECT AVG(salary) FROM payroll_Employewage
+WHERE Gender = 'F' ;
+
+SELECT MIN(salary) FROM payroll_Employewage
+WHERE Gender = 'F' ;
+
+
+SELECT MAX(salary) FROM payroll_Employewage
+WHERE Gender = 'F' ;
+
 SELECT SUM(salary) FROM payroll_Employewage
 WHERE Gender = 'F' GROUP BY Gender;
 

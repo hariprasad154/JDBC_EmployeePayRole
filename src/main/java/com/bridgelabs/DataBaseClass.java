@@ -32,12 +32,19 @@ public class DataBaseClass {
             System.out.println("The error at the Connection - " + e);
         }
     }
-    public static void set(String quary){
+    public static void set(){
         try {
             Connection connection =DriverManager.getConnection(url,userName,password);
-            Statement st = connection.createStatement();
+            // Statement st = connection.createStatement();
+
+            String quary ="update payroll_Employewage set salary = ? where id = ? ";
+            // " insert into employee_payroll(name,salary,start) values(?,?,?)";
             System.out.println("--------The quary point for the updation ------ \n");
-            int count =st.executeUpdate(quary);
+            PreparedStatement st = connection.prepareStatement(quary);
+            st.setDouble(1,3600000);
+            st.setInt(2,4);
+
+            int count = st.executeUpdate();
             System.out.println("The no row affected + "+ count);
             st.close();
             connection.close();
@@ -47,11 +54,9 @@ public class DataBaseClass {
         }
 
     }
-
-
     public static void main(String[] args) {
         fetchData("select * from payroll_Employewage");
-        set("update payroll_Employewage set salary =3000000.0 where id = 4 ");
+        set();
         fetchData("select * from payroll_Employewage");
     }
 }

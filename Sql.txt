@@ -1,0 +1,97 @@
+create database payroll_Employewage;
+use payroll_Employewage
+
+UC-2
+create table payroll_Employewage(id int not null auto_increment,
+name varchar(30),
+startDate date not null,
+primary key(id)
+);
+_____________________________________________________________________
+
+UC3
+
+insert into payroll_Employewage(id,name,startDate)
+values(1,"Hari",'2022-08-22'),(2,"Prasad",'2020-08-22'),(3,"MNNaidu",'2020-08-22'),(4,"Pushpa",'2020-08-22');
+
+_______________________________________________________________________
+
+ UC4
+
+ select * from payroll_Employewage
+
+ 1	Hari	2022-08-22
+ 2	Prasad	2020-08-22
+ 3	MNNaidu	2020-08-22
+ 4	Pushpa	2020-08-22
+________________________________________________
+
+UC5
+
+SELECT salary FROM payroll_Employewage
+WHERE name = "Hari"
+
+SELECT salary FROM payroll_Employewage
+WHERE startDate BETWEEN CAST('2018-01-01'
+AS DATE) AND DATE(NOW());
+
+___________________________________________________________
+
+UC 6
+
+ALTER TABLE payroll_Employewage add Gender Char not null;
+
+update payroll_Employewage set Gender ='M' where id =1 or id =2 or id =3  ;
+
+update payroll_Employewage set Gender ='F' where id = 4 ;
+
+
+1	Hari	2022-08-22	35000	M
+2	Prasad	2020-08-22	36000	M
+3	MNNaidu	2020-08-22	46000	M
+4	Pushpa	2020-08-22	36000	F
+5	Rossy	2023-02-16	35000	F
+
+_______________________________________________
+
+UC 7
+
+SELECT SUM(salary) FROM payroll_Employewage
+WHERE Gender = 'F' ;
+
+71000
+
+SELECT AVG(salary) FROM payroll_Employewage
+WHERE Gender = 'F' ;
+
+SELECT MIN(salary) FROM payroll_Employewage
+WHERE Gender = 'F' ;
+
+
+SELECT MAX(salary) FROM payroll_Employewage
+WHERE Gender = 'F' ;
+
+SELECT SUM(salary) FROM payroll_Employewage
+WHERE Gender = 'F' GROUP BY Gender;
+
+71000
+_______________________________________________
+
+UC 8
+
+CREATE TABLE IF NOT EXISTS `payroll_employewage`.`payroll_employewage` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(30) NULL DEFAULT NULL,
+  `startDate` DATE NOT NULL,
+  `salary` DOUBLE NOT NULL,
+  `Gender` CHAR(1) NOT NULL,
+  `Department` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+
+
+ENGINE = InnoDB
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci
+
+

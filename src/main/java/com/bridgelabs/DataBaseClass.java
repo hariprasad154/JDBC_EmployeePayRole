@@ -55,8 +55,8 @@ public class DataBaseClass {
 
     }
     public static void main(String[] args) {
-        fetchData("select * from payroll_Employewage");
-        set();
-        fetchData("select * from payroll_Employewage");
+        fetchData("SELECT * FROM payroll_Employewage WHERE startDate BETWEEN CAST('2021-01-01'AS DATE) AND DATE(NOW())");
+//        set();
+//        fetchData("select * from payroll_Employewage");
     }
 }

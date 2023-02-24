@@ -1,0 +1,16 @@
+create database payroll_Employewage;
+use payroll_Employewage
+
+UC-2
+create table payroll_Employewage(id int not null auto_increment,
+name varchar(30),
+startDate date not null,
+primary key(id)
+);
+_____________________________________________________________________
+
+UC3
+
+
+_______________________________________________________________________
+

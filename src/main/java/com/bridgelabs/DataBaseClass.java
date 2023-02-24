@@ -32,8 +32,26 @@ public class DataBaseClass {
             System.out.println("The error at the Connection - " + e);
         }
     }
+    public static void set(String quary){
+        try {
+            Connection connection =DriverManager.getConnection(url,userName,password);
+            Statement st = connection.createStatement();
+            System.out.println("--------The quary point for the updation ------ \n");
+            int count =st.executeUpdate(quary);
+            System.out.println("The no row affected + "+ count);
+            st.close();
+            connection.close();
+
+        } catch (SQLException e) {
+            System.out.println("error - "+ e);
+        }
+
+    }
+
 
     public static void main(String[] args) {
+        fetchData("select * from payroll_Employewage");
+        set("update payroll_Employewage set salary =3000000.0 where id = 4 ");
         fetchData("select * from payroll_Employewage");
     }
 }
